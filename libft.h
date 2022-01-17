@@ -2,6 +2,7 @@
 # define LIBFT_H
 # include <stdlib.h>
 # include <stddef.h>
+# include <errno.h>
 # include <unistd.h>
 
 int		ft_isalpha(int c);
