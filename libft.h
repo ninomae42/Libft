@@ -1,8 +1,9 @@
 #ifndef LIBFT_H
 # define LIBFT_H
+# include <errno.h>
 # include <stdlib.h>
 # include <stddef.h>
-# include <errno.h>
+# include <limits.h>
 # include <unistd.h>
 
 int		ft_isalpha(int c);
