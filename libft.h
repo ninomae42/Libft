@@ -1,6 +1,7 @@
 #ifndef LIBFT_H
 # define LIBFT_H
 # include <errno.h>
+# include <stdint.h>
 # include <stdlib.h>
 # include <stddef.h>
 # include <limits.h>
