@@ -1,0 +1,23 @@
+#include "libft.h"
+
+// Allocates and returns a new string, whici is the result of
+// the concatenation of s1 and s2.
+char	*ft_strjoin(char const *s1, char const *s2)
+{
+	char	*p_ret;
+	size_t	alloc_size;
+
+	if (s1 == NULL && s2 == NULL)
+		return (ft_strdup(""));
+	else if (s1 == NULL)
+		return (ft_strdup(s2));
+	else if (s2 == NULL)
+		return (ft_strdup(s1));
+	alloc_size = sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 1);
+	p_ret = (char *)malloc(alloc_size);
+	if (p_ret == NULL)
+		return (NULL);
+	ft_strlcpy(p_ret, s1, alloc_size);
+	ft_strlcat(p_ret, s2, alloc_size);
+	return (p_ret);
+}
