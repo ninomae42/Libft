@@ -7,8 +7,8 @@ static int	ft_isspace(int c)
 	unsigned char	uc;
 
 	uc = (unsigned char)c;
-	if (c == '\t' || c == '\n' || c == '\v' || c == '\f'
-		|| c == '\r' || c == ' ')
+	if (uc == '\t' || uc == '\n' || uc == '\v' || uc == '\f'
+		|| uc == '\r' || uc == ' ')
 		return (1);
 	else
 		return (0);
