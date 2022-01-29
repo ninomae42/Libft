@@ -6,7 +6,7 @@
 /*   By: tashimiz <tashimiz@student.42tokyo.jp      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/27 17:00:24 by tashimiz          #+#    #+#             */
-/*   Updated: 2022/01/27 17:00:25 by tashimiz         ###   ########.fr       */
+/*   Updated: 2022/01/29 16:25:55 by tashimiz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 	len_ndl = ft_strlen(needle);
 	if (len_ndl == 0)
 		return ((char *)haystack);
+	if (len == 0)
+		return (NULL);
 	p_hs = (const char *)haystack;
 	while (*p_hs != '\0' && len >= len_ndl)
 	{
