@@ -6,7 +6,7 @@
 /*   By: tashimiz <tashimiz@student.42tokyo.jp      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/27 16:59:24 by tashimiz          #+#    #+#             */
-/*   Updated: 2022/01/27 16:59:29 by tashimiz         ###   ########.fr       */
+/*   Updated: 2022/01/29 12:29:24 by tashimiz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,8 @@ size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 	size_t	src_len;
 	size_t	cpy_cnt;
 
+	if (dstsize == 0 && dst == NULL)
+		return (ft_strlen(src));
 	dst_nlen = ft_strnlen(dst, dstsize);
 	src_len = ft_strlen(src);
 	if (dstsize <= ft_strlen(dst))
