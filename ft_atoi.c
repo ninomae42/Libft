@@ -6,7 +6,7 @@
 /*   By: tashimiz <tashimiz@student.42tokyo.jp      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/27 16:53:38 by tashimiz          #+#    #+#             */
-/*   Updated: 2022/01/27 16:53:45 by tashimiz         ###   ########.fr       */
+/*   Updated: 2022/01/30 10:27:22 by tashimiz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,22 +26,11 @@ static int	ft_isspace(int c)
 		return (0);
 }
 
-// overflow -> 1, underflow -> 2
-static int	is_overflow(const char *str, int num, int sign)
-{
-	if (sign == -1 && num != 0 && LONG_MIN / num > sign)
-		return (2);
-	else if (sign == 1 && LONG_MAX - num * 10 < (*str - '0'))
-		return (1);
-	else
-		return (0);
-}
-
 // convert ASCII string to integer
 int	ft_atoi(const char *str)
 {
-	int	num;
-	int	sign;
+	long	num;
+	int		sign;
 
 	num = 0;
 	sign = 1;
@@ -53,12 +42,15 @@ int	ft_atoi(const char *str)
 		str++;
 	while (ft_isdigit(*str))
 	{
-		if (is_overflow(str, num, sign) == 1)
-			return ((int)LONG_MAX);
-		else if (is_overflow(str, num, sign) == 2)
-			return ((int)LONG_MIN);
+		if ((num * 10 + (*str - '0')) / 10 != num)
+		{
+			if (sign == -1)
+				return (0);
+			else
+				return (-1);
+		}
 		num = num * 10 + (*str - '0');
 		str++;
 	}
-	return (num * sign);
+	return ((int)num * sign);
 }
