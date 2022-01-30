@@ -6,7 +6,7 @@
 /*   By: tashimiz <tashimiz@student.42tokyo.jp      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/27 17:00:55 by tashimiz          #+#    #+#             */
-/*   Updated: 2022/01/27 17:00:57 by tashimiz         ###   ########.fr       */
+/*   Updated: 2022/01/30 11:38:57 by tashimiz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 
 	if (s == NULL)
 		return (NULL);
-	if (len == 0 || start >= (unsigned int)ft_strlen(s))
+	if (len == 0 || (size_t)start >= ft_strlen(s))
 		return (ft_strdup(""));
 	if (len > ft_strlen(s))
 		allocsize = ft_strlen(s) + 1;
