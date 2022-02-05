@@ -30,6 +30,6 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	p_ret = (char *)malloc(sizeof(char) * (allocsize));
 	if (p_ret == NULL)
 		return (NULL);
-	ft_strlcpy(p_ret, &s[start], len + 1);
+	ft_strlcpy(p_ret, &s[start], allocsize);
 	return (p_ret);
 }
