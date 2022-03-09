@@ -27,29 +27,16 @@ static size_t	count_digit(int n)
 	return (cnt);
 }
 
-static void	set_numbers(int nbr, char *s, size_t cnt)
+static void	set_numbers(long int nbr, char *s, size_t cnt)
 {
-	unsigned int	u_nbr;
-
 	if (nbr < 0)
 	{
-		u_nbr = nbr * -1;
-		if (u_nbr == 2147483648)
-		{
-			set_numbers(u_nbr / 10, s, cnt - 1);
-			set_numbers(u_nbr % 10, s, cnt);
-		}
-		else
-			set_numbers(u_nbr, s, cnt);
+		nbr *= -1;
 		s[0] = '-';
 	}
-	else if (nbr >= 10)
-	{
-		set_numbers(nbr / 10, s, cnt - 1);
-		set_numbers(nbr % 10, s, cnt);
-	}
-	else
-		s[cnt] = nbr + '0';
+	s[cnt] = "0123456789"[nbr % 10];
+	if (nbr / 10)
+		set_numbers(nbr / 10, s, --cnt);
 }
 
 // Allocates and returns a string representing the integer received
@@ -61,9 +48,9 @@ char	*ft_itoa(int n)
 	p_ret = (char *)ft_calloc(count_digit(n) + 1, sizeof(char));
 	if (p_ret == NULL)
 		return (NULL);
-	if (n != 0)
-		set_numbers(n, p_ret, count_digit(n) - 1);
-	else
+	if (n == 0)
 		p_ret[0] = '0';
+	else
+		set_numbers(n, p_ret, count_digit(n) - 1);
 	return (p_ret);
 }
