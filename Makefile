@@ -6,12 +6,12 @@
 #    By: tashimiz <tashimiz@student.42tokyo.jp      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/27 17:01:32 by tashimiz          #+#    #+#              #
-#    Updated: 2022/01/27 17:01:34 by tashimiz         ###   ########.fr        #
+#    Updated: 2022/03/19 10:27:50 by tashimiz         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME := libft.a
-SRCDIR := ./src/
+SRCDIR := ./srcs/
 SRCS := ft_isalpha.c \
 	   ft_isdigit.c \
 	   ft_isalnum.c \
@@ -65,7 +65,7 @@ OBJS_BONUS := $(SRCS_BONUS:.c=.o)
 
 CC := cc
 CFLAGS := -Wall -Wextra -Werror
-INCDIR := ./include
+INCDIR := ./includes
 AR := ar
 ARFLAGS := rcs
 RM := rm -f
