@@ -15,41 +15,78 @@
 // white-space character test
 static int	ft_isspace(int c)
 {
-	unsigned char	uc;
+	return (('\t' <= c && c <= '\r') || c == ' ');
+}
 
-	uc = (unsigned char)c;
-	if (uc == '\t' || uc == '\n' || uc == '\v' || uc == '\f'
-		|| uc == '\r' || uc == ' ')
-		return (1);
+// overflow check
+static int	is_overflow(long current, long sign, char next)
+{
+	if (0 < sign)
+	{
+		if (LONG_MAX / 10 < current)
+			return (1);
+		current = current * 10;
+		if ((LONG_MAX - current) < (next - '0'))
+			return (1);
+	}
 	else
-		return (0);
+	{
+		current = current * (-1);
+		if (current < (LONG_MIN / 10))
+			return (1);
+		current = current * 10;
+		if (-(next - '0') < (LONG_MIN - current))
+			return (1);
+	}
+	return (0);
+}
+
+// main conversion logic
+static long	do_conversion(const char *nptr, long sign, int *is_err)
+{
+	long	ret;
+
+	ret = 0;
+	while (ft_isdigit(*nptr))
+	{
+		if (is_overflow(ret, sign, *nptr))
+		{
+			if (0 < sign)
+			{
+				*is_err = 1;
+				return (LONG_MAX);
+			}
+			else
+			{
+				*is_err = 1;
+				return (LONG_MIN);
+			}
+		}
+		ret = ret * 10 + (*nptr - '0');
+		nptr++;
+	}
+	return (ret);
 }
 
 // convert ASCII string to integer
-int	ft_atoi(const char *str)
+int	ft_atoi(const char *nptr)
 {
-	long	num;
-	int		sign;
+	long	ret;
+	long	sign;
+	int		is_err;
 
-	num = 0;
 	sign = 1;
-	while (ft_isspace(*str))
-		str++;
-	if (*str == '-')
-		sign = -1;
-	if (*str == '-' || *str == '+')
-		str++;
-	while (ft_isdigit(*str))
+	while (ft_isspace(*nptr))
+		nptr++;
+	if (*nptr == '-' || *nptr == '+')
+		if (*nptr++ == '-')
+			sign = -1;
+	is_err = 0;
+	ret = do_conversion(nptr, sign, &is_err);
+	if (is_err)
 	{
-		if ((num * 10 + (*str - '0')) / 10 != num)
-		{
-			if (sign == -1)
-				return (0);
-			else
-				return (-1);
-		}
-		num = num * 10 + (*str - '0');
-		str++;
+		errno = ERANGE;
+		return ((int)ret);
 	}
-	return ((int)num * sign);
+	return ((int)(sign * ret));
 }
