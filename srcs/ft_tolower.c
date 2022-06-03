@@ -12,19 +12,10 @@
 
 #include "libft.h"
 
-static int	ft_isupper(int c)
-{
-	if ('A' <= c && c <= 'Z')
-		return (1);
-	else
-		return (0);
-}
-
 // upper case to lower case letter conversion
 int	ft_tolower(int c)
 {
 	if (ft_isupper(c))
 		return (c + ('a' - 'A'));
-	else
-		return (c);
+	return (c);
 }

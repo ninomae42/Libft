@@ -15,15 +15,17 @@
 // compare strings
 int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	if (n == 0)
-		return (0);
-	while ((n - 1) && (unsigned char)*s1 != '\0' && (unsigned char)*s2 != '\0')
+	size_t				i;
+	const unsigned char	*p_s1;
+	const unsigned char	*p_s2;
+
+	p_s1 = (const unsigned char *)s1;
+	p_s2 = (const unsigned char *)s2;
+	while (i < (n - 1) && p_s1[i] != '\0' && p_s2[i] != '\0')
 	{
-		if ((unsigned char)*s1 != (unsigned char)*s2)
-			return ((unsigned char)*s1 - (unsigned char)*s2);
-		s1++;
-		s2++;
-		n--;
+		if (p_s1[i] != p_s2[i])
+			return (p_s1[i] - p_s2[i]);
+		i++;
 	}
-	return ((unsigned char)*s1 - (unsigned char)*s2);
+	return (p_s1[i] - p_s2[i]);
 }

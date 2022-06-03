@@ -15,21 +15,19 @@
 // locate a substring in a string
 char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 {
-	const char	*p_hs;
-	size_t		len_ndl;
+	size_t	needle_len;
 
-	len_ndl = ft_strlen(needle);
-	if (len_ndl == 0)
+	needle_len = ft_strlen(needle);
+	if (needle_len == 0)
 		return ((char *)haystack);
-	if (len == 0)
-		return (NULL);
-	p_hs = (const char *)haystack;
-	while (*p_hs != '\0' && len >= len_ndl)
+	while (len && *haystack != '\0')
 	{
-		if (*p_hs == *needle
-			&& ft_strncmp(p_hs, needle, len_ndl) == 0)
-			return ((char *)p_hs);
-		p_hs++;
+		if (len < needle_len)
+			break ;
+		if (*haystack == *needle
+			&& ft_strncmp(haystack, needle, needle_len) == 0)
+			return ((char *)haystack);
+		haystack++;
 		len--;
 	}
 	return (NULL);
