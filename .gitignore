@@ -2,3 +2,5 @@ libft.a
 */*.o
 .vscode
 a.out
+compile_commands.json
+.cache
