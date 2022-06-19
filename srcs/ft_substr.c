@@ -6,7 +6,7 @@
 /*   By: tashimiz <tashimiz@student.42tokyo.jp      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/27 17:00:55 by tashimiz          #+#    #+#             */
-/*   Updated: 2022/03/19 15:02:38 by tashimiz         ###   ########.fr       */
+/*   Updated: 2022/06/18 13:24:55 by tashimiz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,14 +17,16 @@
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	char	*p_ret;
+	size_t	s_len;
 	size_t	allocsize;
 
 	if (s == NULL)
 		return (NULL);
-	if (len == 0 || (size_t)start >= ft_strlen(s))
+	s_len = ft_strlen(s);
+	if (len == 0 || s_len <= (size_t)start)
 		return (ft_strdup(""));
-	if (len > ft_strlen(s))
-		allocsize = ft_strlen(s) + 1;
+	if (s_len < len)
+		allocsize = s_len + 1;
 	else
 		allocsize = len + 1;
 	p_ret = (char *)malloc(sizeof(char) * (allocsize));
