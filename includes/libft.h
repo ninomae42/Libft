@@ -6,18 +6,13 @@
 /*   By: tashimiz <tashimiz@student.42tokyo.jp      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/27 17:01:25 by tashimiz          #+#    #+#             */
-/*   Updated: 2022/01/27 17:01:26 by tashimiz         ###   ########.fr       */
+/*   Updated: 2022/06/25 15:39:27 by tashimiz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
-# include <errno.h>
-# include <stdint.h>
-# include <stdlib.h>
 # include <stddef.h>
-# include <limits.h>
-# include <unistd.h>
 
 typedef struct s_list
 {

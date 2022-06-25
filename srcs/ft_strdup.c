@@ -6,11 +6,13 @@
 /*   By: tashimiz <tashimiz@student.42tokyo.jp      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/27 16:58:54 by tashimiz          #+#    #+#             */
-/*   Updated: 2022/03/19 15:01:21 by tashimiz         ###   ########.fr       */
+/*   Updated: 2022/06/25 15:45:24 by tashimiz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <errno.h>
+#include <stdlib.h>
 
 static char	*ft_strcpy(char *dst, const char *src)
 {
@@ -32,7 +34,7 @@ char	*ft_strdup(const char *s1)
 {
 	char	*p_ret;
 
-	p_ret = (char *)ft_calloc(ft_strlen(s1) + 1, sizeof(char));
+	p_ret = (char *)malloc(sizeof(char) * (ft_strlen(s1) + 1));
 	if (p_ret == NULL)
 	{
 		errno = ENOMEM;

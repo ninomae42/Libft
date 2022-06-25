@@ -6,11 +6,12 @@
 /*   By: tashimiz <tashimiz@student.42tokyo.jp      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/27 16:59:12 by tashimiz          #+#    #+#             */
-/*   Updated: 2022/03/19 15:01:32 by tashimiz         ###   ########.fr       */
+/*   Updated: 2022/06/25 15:46:20 by tashimiz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdlib.h>
 
 // Allocates and returns a new string, whici is the result of
 // the concatenation of s1 and s2.

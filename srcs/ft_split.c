@@ -6,11 +6,12 @@
 /*   By: tashimiz <tashimiz@student.42tokyo.jp      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/27 16:58:23 by tashimiz          #+#    #+#             */
-/*   Updated: 2022/03/19 15:01:00 by tashimiz         ###   ########.fr       */
+/*   Updated: 2022/06/25 15:44:17 by tashimiz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdlib.h>
 
 static size_t	count_strs(char const *s, char c)
 {

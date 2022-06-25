@@ -6,11 +6,12 @@
 /*   By: tashimiz <tashimiz@student.42tokyo.jp      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/27 17:00:55 by tashimiz          #+#    #+#             */
-/*   Updated: 2022/06/18 13:24:55 by tashimiz         ###   ########.fr       */
+/*   Updated: 2022/06/25 15:48:19 by tashimiz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdlib.h>
 
 // Allocates and returns a substring from the string 's'.
 // The substring begins at index 'start' and is of maximum size 'len'.

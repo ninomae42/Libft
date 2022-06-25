@@ -6,11 +6,13 @@
 /*   By: tashimiz <tashimiz@student.42tokyo.jp      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/27 16:54:04 by tashimiz          #+#    #+#             */
-/*   Updated: 2022/03/19 10:28:26 by tashimiz         ###   ########.fr       */
+/*   Updated: 2022/06/25 15:40:33 by tashimiz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <errno.h>
+#include <stdlib.h>
 
 // memory allocation
 void	*ft_calloc(size_t count, size_t size)

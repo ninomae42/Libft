@@ -6,11 +6,12 @@
 /*   By: tashimiz <tashimiz@student.42tokyo.jp      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/27 17:00:44 by tashimiz          #+#    #+#             */
-/*   Updated: 2022/06/19 11:14:59 by tashimiz         ###   ########.fr       */
+/*   Updated: 2022/06/25 15:47:58 by tashimiz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdlib.h>
 
 // allocates and returns a copy of 's1' with the characters
 // specified in 'set' removed from the beginning and

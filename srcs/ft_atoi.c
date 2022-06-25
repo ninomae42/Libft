@@ -6,11 +6,13 @@
 /*   By: tashimiz <tashimiz@student.42tokyo.jp      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/27 16:53:38 by tashimiz          #+#    #+#             */
-/*   Updated: 2022/03/19 10:28:06 by tashimiz         ###   ########.fr       */
+/*   Updated: 2022/06/25 15:39:58 by tashimiz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <errno.h>
+#include <limits.h>
 
 // white-space character test
 static int	ft_isspace(int c)

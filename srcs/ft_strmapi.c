@@ -6,11 +6,13 @@
 /*   By: tashimiz <tashimiz@student.42tokyo.jp      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/27 16:59:58 by tashimiz          #+#    #+#             */
-/*   Updated: 2022/03/19 15:02:00 by tashimiz         ###   ########.fr       */
+/*   Updated: 2022/06/25 15:47:11 by tashimiz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <limits.h>
+#include <stdlib.h>
 
 // Applies the function 'f' to each character of the string 's',
 // and passing its index as first argument to create a new string
