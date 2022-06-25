@@ -47,7 +47,7 @@ static char	*read_from_fd_and_save(int fd, char *save)
 	if (buf == NULL)
 		return (NULL);
 	bytes_read = 1;
-	while (ft_strchr(save, '\n') == NULL && bytes_read != 0)
+	while (save == NULL || (ft_strchr(save, '\n') == NULL && bytes_read != 0))
 	{
 		bytes_read = read(fd, buf, BUFFER_SIZE);
 		if (bytes_read == -1)
@@ -93,7 +93,7 @@ char	*get_next_line(int fd)
 	char		*line;
 	static char	*fds[MAX_FD];
 
-	if (fd < 0 || BUFFER_SIZE <= 0 || fd > 255)
+	if (fd < 0 || MAX_FD < fd || BUFFER_SIZE <= 0)
 		return (NULL);
 	fds[fd] = read_from_fd_and_save(fd, fds[fd]);
 	if (fds[fd] == NULL)
