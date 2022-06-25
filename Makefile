@@ -6,7 +6,7 @@
 #    By: tashimiz <tashimiz@student.42tokyo.jp      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/27 17:01:32 by tashimiz          #+#    #+#              #
-#    Updated: 2022/06/25 16:39:44 by tashimiz         ###   ########.fr        #
+#    Updated: 2022/06/25 16:49:58 by tashimiz         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -61,9 +61,6 @@ SRCS_BONUS := ft_lstnew.c \
 			 ft_lstmap.c
 
 SRCS_GNL := get_next_line.c
-OBJS_GNL := $(SRCS_GNL:.c=.o)
-SRCS_GNL := $(addprefix $(SRCS_DIR)/, $(SRCS_GNL))
-OBJS_GNL := $(addprefix $(OBJS_DIR)/, $(OBJS_GNL))
 
 OBJS := $(SRCS:.c=.o)
 SRCS := $(addprefix $(SRCS_DIR)/, $(SRCS))
@@ -72,6 +69,10 @@ OBJS := $(addprefix $(OBJS_DIR)/, $(OBJS))
 OBJS_BONUS := $(SRCS_BONUS:.c=.o)
 SRCS_BONUS := $(addprefix $(SRCS_DIR), $(SRCS_BONUS))
 OBJS_BONUS := $(addprefix $(OBJS_DIR), $(OBJS_BONUS))
+
+OBJS_GNL := $(SRCS_GNL:.c=.o)
+SRCS_GNL := $(addprefix $(SRCS_DIR)/, $(SRCS_GNL))
+OBJS_GNL := $(addprefix $(OBJS_DIR)/, $(OBJS_GNL))
 
 INC_DIR := ./includes
 INCLUDES := $(addprefix -I, $(INC_DIR))
