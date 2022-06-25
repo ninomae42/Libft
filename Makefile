@@ -6,7 +6,7 @@
 #    By: tashimiz <tashimiz@student.42tokyo.jp      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/27 17:01:32 by tashimiz          #+#    #+#              #
-#    Updated: 2022/06/25 14:58:33 by tashimiz         ###   ########.fr        #
+#    Updated: 2022/06/25 16:39:44 by tashimiz         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -60,6 +60,11 @@ SRCS_BONUS := ft_lstnew.c \
 			 ft_lstiter.c \
 			 ft_lstmap.c
 
+SRCS_GNL := get_next_line.c
+OBJS_GNL := $(SRCS_GNL:.c=.o)
+SRCS_GNL := $(addprefix $(SRCS_DIR)/, $(SRCS_GNL))
+OBJS_GNL := $(addprefix $(OBJS_DIR)/, $(OBJS_GNL))
+
 OBJS := $(SRCS:.c=.o)
 SRCS := $(addprefix $(SRCS_DIR)/, $(SRCS))
 OBJS := $(addprefix $(OBJS_DIR)/, $(OBJS))
@@ -84,6 +89,10 @@ ifeq ($(MAKECMDGOALS), bonus)
 	OBJS += $(OBJS_BONUS)
 endif
 
+ifeq ($(MAKECMDGOALS), gnl)
+	OBJS += $(OBJS_GNL)
+endif
+
 #OBJS += $(OBJS_BONUS)
 
 all: $(NAME)
@@ -105,6 +114,8 @@ re: fclean all
 
 bonus: all
 
-.PHONY: all clean fclean re bonus
+gnl: all
+
+.PHONY: all clean fclean re bonus gnl
 
 -include $(DEPENDS)
