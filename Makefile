@@ -6,12 +6,15 @@
 #    By: tashimiz <tashimiz@student.42tokyo.jp      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/27 17:01:32 by tashimiz          #+#    #+#              #
-#    Updated: 2022/03/19 10:27:50 by tashimiz         ###   ########.fr        #
+#    Updated: 2022/06/25 14:58:33 by tashimiz         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME := libft.a
-SRCDIR := ./srcs/
+
+SRCS_DIR := ./srcs
+OBJS_DIR := ./objs
+
 SRCS := ft_isalpha.c \
 	   ft_isdigit.c \
 	   ft_isalnum.c \
@@ -57,18 +60,25 @@ SRCS_BONUS := ft_lstnew.c \
 			 ft_lstiter.c \
 			 ft_lstmap.c
 
-SRCS := $(addprefix $(SRCDIR), $(SRCS))
-SRCS_BONUS := $(addprefix $(SRCDIR), $(SRCS_BONUS))
-
 OBJS := $(SRCS:.c=.o)
+SRCS := $(addprefix $(SRCS_DIR)/, $(SRCS))
+OBJS := $(addprefix $(OBJS_DIR)/, $(OBJS))
+
 OBJS_BONUS := $(SRCS_BONUS:.c=.o)
+SRCS_BONUS := $(addprefix $(SRCS_DIR), $(SRCS_BONUS))
+OBJS_BONUS := $(addprefix $(OBJS_DIR), $(OBJS_BONUS))
+
+INC_DIR := ./includes
+INCLUDES := $(addprefix -I, $(INC_DIR))
+
+DEPENDS := $(OBJS:.o=.d)
 
 CC := cc
-CFLAGS := -Wall -Wextra -Werror
-INCDIR := ./includes
+CFLAGS := -Wall -Wextra -Werror -g -MP -MMD
+
 AR := ar
 ARFLAGS := rcs
-RM := rm -f
+RM := rm -rf
 
 ifeq ($(MAKECMDGOALS), bonus)
 	OBJS += $(OBJS_BONUS)
@@ -76,16 +86,17 @@ endif
 
 #OBJS += $(OBJS_BONUS)
 
-.c.o:
-	$(CC) $(CFLAGS) -I$(INCDIR) -c $< -o $(<:.c=.o)
+all: $(NAME)
 
 $(NAME): $(OBJS)
 	$(AR) $(ARFLAGS) $(NAME) $(OBJS)
 
-all: $(NAME)
+$(OBJS_DIR)/%o: $(SRCS_DIR)/%c
+	@if [ ! -e `dirname $@` ]; then mkdir -p `dirname $@`; fi
+	$(CC) $(CFLAGS) $(INCLUDES) -o $@ -c $<
 
 clean:
-	$(RM) $(OBJS) $(OBJS_BONUS)
+	$(RM) $(OBJS_DIR)
 
 fclean: clean
 	$(RM) $(NAME)
@@ -95,3 +106,5 @@ re: fclean all
 bonus: all
 
 .PHONY: all clean fclean re bonus
+
+-include $(DEPENDS)
