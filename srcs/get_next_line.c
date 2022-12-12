@@ -10,9 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/libft.h"
-#include <stdlib.h>
-#include <unistd.h>
+#include "libft.h"
+#include "libft_internal.h"
 
 #define MAX_FD 256
 #ifndef BUFFER_SIZE

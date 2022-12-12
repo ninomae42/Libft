@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdlib.h>
+#include "libft_internal.h"
 
 // Allocates and returns a substring from the string 's'.
 // The substring begins at index 'start' and is of maximum size 'len'.

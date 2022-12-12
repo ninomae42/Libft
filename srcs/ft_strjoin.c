@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdlib.h>
+#include "libft_internal.h"
 
 // Allocates and returns a new string, whici is the result of
 // the concatenation of s1 and s2.

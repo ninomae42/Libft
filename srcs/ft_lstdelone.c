@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdlib.h>
+#include "libft_internal.h"
 
 void	ft_lstdelone(t_list *lst, void (*del)(void *))
 {

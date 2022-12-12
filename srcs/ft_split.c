@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdlib.h>
+#include "libft_internal.h"
 
 static size_t	count_strs(char const *s, char c)
 {

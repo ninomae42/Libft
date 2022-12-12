@@ -11,8 +11,7 @@
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <errno.h>
-#include <stdlib.h>
+#include "libft_internal.h"
 
 // memory allocation
 void	*ft_calloc(size_t count, size_t size)

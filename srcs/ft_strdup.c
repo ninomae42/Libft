@@ -11,8 +11,7 @@
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <errno.h>
-#include <stdlib.h>
+#include "libft_internal.h"
 
 static char	*ft_strcpy(char *dst, const char *src)
 {

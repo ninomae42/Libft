@@ -11,8 +11,7 @@
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <limits.h>
-#include <stdlib.h>
+#include "libft_internal.h"
 
 // Applies the function 'f' to each character of the string 's',
 // and passing its index as first argument to create a new string

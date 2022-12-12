@@ -11,8 +11,7 @@
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <errno.h>
-#include <limits.h>
+#include "libft_internal.h"
 
 // white-space character test
 static int	ft_isspace(int c)

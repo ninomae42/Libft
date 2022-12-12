@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdlib.h>
+#include "libft_internal.h"
 
 // allocates and returns a copy of 's1' with the characters
 // specified in 'set' removed from the beginning and
