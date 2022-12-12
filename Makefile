@@ -49,30 +49,21 @@ SRCS := ft_isalpha.c \
 	   ft_putstr_fd.c \
 	   ft_putendl_fd.c \
 	   ft_putnbr_fd.c \
-
-SRCS_BONUS := ft_lstnew.c \
-			 ft_lstadd_front.c \
-			 ft_lstsize.c \
-			 ft_lstlast.c \
-			 ft_lstadd_back.c \
-			 ft_lstdelone.c \
-			 ft_lstclear.c \
-			 ft_lstiter.c \
-			 ft_lstmap.c
-
-SRCS_GNL := get_next_line.c
+	   ft_lstnew.c \
+	   ft_lstadd_front.c \
+	   ft_lstsize.c \
+	   ft_lstlast.c \
+	   ft_lstadd_back.c \
+	   ft_lstdelone.c \
+	   ft_lstclear.c \
+	   ft_lstiter.c \
+	   ft_lstmap.c \
+	   get_next_line.c \
 
 OBJS := $(SRCS:.c=.o)
 SRCS := $(addprefix $(SRCS_DIR)/, $(SRCS))
 OBJS := $(addprefix $(OBJS_DIR)/, $(OBJS))
 
-OBJS_BONUS := $(SRCS_BONUS:.c=.o)
-SRCS_BONUS := $(addprefix $(SRCS_DIR), $(SRCS_BONUS))
-OBJS_BONUS := $(addprefix $(OBJS_DIR), $(OBJS_BONUS))
-
-OBJS_GNL := $(SRCS_GNL:.c=.o)
-SRCS_GNL := $(addprefix $(SRCS_DIR)/, $(SRCS_GNL))
-OBJS_GNL := $(addprefix $(OBJS_DIR)/, $(OBJS_GNL))
 
 INC_DIR := ./includes
 INCLUDES := $(addprefix -I, $(INC_DIR))
@@ -85,16 +76,6 @@ CFLAGS := -Wall -Wextra -Werror -g -MP -MMD
 AR := ar
 ARFLAGS := rcs
 RM := rm -rf
-
-ifeq ($(MAKECMDGOALS), bonus)
-	OBJS += $(OBJS_BONUS)
-endif
-
-ifeq ($(MAKECMDGOALS), gnl)
-	OBJS += $(OBJS_GNL)
-endif
-
-#OBJS += $(OBJS_BONUS)
 
 all: $(NAME)
 
@@ -113,10 +94,6 @@ fclean: clean
 
 re: fclean all
 
-bonus: all
-
-gnl: all
-
-.PHONY: all clean fclean re bonus gnl
+.PHONY: all clean fclean re
 
 -include $(DEPENDS)
