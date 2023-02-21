@@ -6,7 +6,7 @@
 #    By: tashimiz <tashimiz@student.42tokyo.jp      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/27 17:01:32 by tashimiz          #+#    #+#              #
-#    Updated: 2022/06/25 16:49:58 by tashimiz         ###   ########.fr        #
+#    Updated: 2023/02/22 00:52:57 by tashimiz         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,6 +20,8 @@ SRCS := ft_isalpha.c \
 	   ft_isalnum.c \
 	   ft_isascii.c \
 	   ft_isprint.c \
+	   ft_isupper.c \
+	   ft_islower.c \
 	   ft_toupper.c \
 	   ft_tolower.c \
 	   ft_strlen.c \
@@ -71,7 +73,7 @@ INCLUDES := $(addprefix -I, $(INC_DIR))
 DEPENDS := $(OBJS:.o=.d)
 
 CC := cc
-CFLAGS := -Wall -Wextra -Werror -g -MP -MMD
+CFLAGS := -Wall -Wextra -Werror -O3 -MP -MMD
 
 AR := ar
 ARFLAGS := rcs
